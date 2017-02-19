@@ -1,0 +1,24 @@
+{
+  "author" : "Simon Courtois",
+  "commands" : [
+    {
+      "script" : "split-text-to-layers.cocoascript",
+      "name" : "Split text to layers",
+      "handlers" : {
+        "run" : "onRun"
+      },
+      "identifier" : "com.bohemiancoding.sketch.runscriptidentifier"
+    }
+  ],
+  "menu" : {
+    "items" : [
+      "com.bohemiancoding.sketch.runscriptidentifier"
+    ],
+    "title" : "Text Magic"
+  },
+  "identifier" : "com.example.sketch.d31f35f6-6fce-42e8-aad3-6d6a641e67fd",
+  "version" : "1.0.0",
+  "description" : "A Sketch Plugin providing a set of utility functions around text layers",
+  "authorEmail" : "scourtois_sketch_plugin@tinci.fr",
+  "name" : "Text Magic"
+}

@@ -1,0 +1,33 @@
+var onRun = function(context) {
+  var selectedLayers = context.selection,
+      selectionSize = selectedLayers.count();
+
+  for (var i = 0; i < selectionSize; i++) {
+    var layer = selectedLayers[i],
+        frame = [layer frame],
+        string = [layer stringValue],
+        lines = string.split("\n"),
+        linesCount = lines.length,
+        parentGroup = [layer parentGroup],
+        lineHeight = [layer lineHeight];
+
+    if (lineHeight == 0) {
+      lineHeight = Math.ceil([layer fontSize] * 1.35);
+    };
+
+    for (var j = 0; j < linesCount; j++) {
+      var line = lines[j],
+          lineLayer = [layer duplicate],
+          lineFrame = [lineLayer frame]
+
+      [lineLayer setStringValue:line];
+      [lineLayer setName:line];
+      [lineLayer select:true byExpandingSelection:true];
+
+      [lineFrame setY:(lineHeight * j + frame.y())];
+      lineFrame.setHeight(lineHeight);
+    }
+
+    [parentGroup removeLayer:layer];
+  }
+};
